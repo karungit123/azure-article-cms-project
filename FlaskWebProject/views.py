@@ -26,7 +26,6 @@ def home():
         title='Home Page',
         posts=posts
     )
-
 @app.route('/new_post', methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -67,12 +66,13 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
-            app.logger.info('%s',form.username)
+            #flash(form.username.data)
+            app.logger.info('%s Invalid login attempt',form.username.data)
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            app.logger.info('%s',form.username)
+            app.logger.info('%s successfully logged in',form.username.data)
             next_page = url_for('home')
         return redirect(next_page)
     session["state"] = str(uuid.uuid4())
