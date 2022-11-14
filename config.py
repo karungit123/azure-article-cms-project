@@ -6,7 +6,7 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
     BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'jnjarticlecms'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'jnjarticlecms'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'r2gfxEpWe7XZ95alEt0gIEXu2To+OJXreHaJVZaX6f1OX3fDWUN4bZnN3nRNRWadZtfihED1BasA+ASt00m1IA=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
     SQL_SERVER = os.environ.get('SQL_SERVER') or 'jnjcmssqldb.database.windows.net'
